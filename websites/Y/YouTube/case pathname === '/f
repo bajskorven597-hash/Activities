@@ -364,19 +364,19 @@ presence.on('UpdateData', async () => {
         ) {
           // Get index of child element from parent
           // if the current child index is bigger than 0 continue
-          presenceData.details = strings.browsingTypeVideos.replace(
-            '{0}',
-            child?.textContent?.trim().toLowerCase() ?? '',
-          )
-        }
-                else if (hideHome) {
-          return presence.clearActivity()
-        }
-        else {
-          presenceData.details = 'Просматривает главную страницу'
-        }
-        break
+  presenceData.details = strings.browsingTypeVideos.replace(
+          '{0}',
+          child?.textContent?.trim().toLowerCase() ?? '',
+        )
       }
+      else if (hideHome) {
+        return presence.clearActivity()
+      }
+      else {
+        presenceData.details = 'Просматривает главную страницу'
+      }
+      break
+    }
       case pathname.includes('/results'): {
         searching = true
         presenceData.details = strings.search
