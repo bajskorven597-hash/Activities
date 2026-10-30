@@ -369,17 +369,16 @@ presence.on('UpdateData', async () => {
             child?.textContent?.trim().toLowerCase() ?? '',
           )
         }
-        else if (hideHome) {
+                else if (hideHome) {
           return presence.clearActivity()
         }
         else {
-          presenceData.details = strings.viewHome
+          presenceData.details = 'Просматривает главную страницу'
         }
         break
       }
       case pathname.includes('/results'): {
         searching = true
-
         presenceData.details = strings.search
         presenceData.state = document.querySelector<HTMLInputElement>(
           selectors.searchInput,
