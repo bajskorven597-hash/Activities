@@ -213,7 +213,10 @@ presence.on('UpdateData', async () => {
         .replace('%title%', title.trim())
         .replace('%uploader%', uploaderName.trim())
         .replace('%playlistTitle%', playlistTitle.trim())
-        .replace('%playlistQueue%', playlistQueue?.trim() ?? '')
+        else {
+    presenceData.details = 'Просматривает главную страницу'
+    delete presenceData.state
+}
         .replace('%chapter%', chapter ?? ''),
       state: vidState
         .replace('%title%', title.trim())
